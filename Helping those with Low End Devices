@@ -37,23 +37,29 @@ local Tabs = {
     Credits = Window:AddTab({ Title = "Credits", Icon = "type" }),
 }
 
-Performance:CreateButton({
+Tabs.Performance:AddButton({
     Title = "Remove Shadows",
     Callback = function()
         game:GetService("Lighting").GlobalShadows = false
     end
 })
 
-Performance:CreateButton({
+Tabs.Performance:AddButton({
     Title = "Bloom",
     Callback = function()
-        game:GetService("Lighting"):FindFirstChildOfClass("BloomEffect").Enabled = false
+        local bloom = game:GetService("Lighting"):FindFirstChildOfClass("BloomEffect")
+        if bloom then
+            bloom.Enabled = false
+        end
     end
 })
 
-Performance:CreateButton({
+Tabs.Performance:AddButton({
     Title = "SunRaysEffect",
     Callback = function()
-        game:GetService("Lighting"):FindFirstChildOfClass("SunRaysEffect").Enabled = false
+        local sunRays = game:GetService("Lighting"):FindFirstChildOfClass("SunRaysEffect")
+        if sunRays then
+            sunRays.Enabled = false
+        end
     end
 })
