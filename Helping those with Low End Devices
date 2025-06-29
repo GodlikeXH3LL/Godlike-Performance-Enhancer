@@ -37,21 +37,21 @@ local Tabs = {
     Credits = Window:AddTab({ Title = "Credits", Icon = "type" }),
 }
 
-Tabs.Performance:CreateToggle({
+Performance:CreateButton({
     Title = "Remove Shadows",
     Callback = function()
         game:GetService("Lighting").GlobalShadows = false
     end
 })
 
-Tabs.Performance:CreateToggle({
+Performance:CreateButton({
     Title = "Bloom",
     Callback = function()
         game:GetService("Lighting"):FindFirstChildOfClass("BloomEffect").Enabled = false
     end
 })
 
-Tabs.Performance:CreateToggle({
+Performance:CreateButton({
     Title = "SunRaysEffect",
     Callback = function()
         game:GetService("Lighting"):FindFirstChildOfClass("SunRaysEffect").Enabled = false
