@@ -63,3 +63,30 @@ Tabs.Performance:AddButton({
         end
     end
 })
+
+Tabs.Performance:AddButton({
+    Title = "Destroy Graphics",
+    Callback = function()
+        local GraphicTypes = {
+            GraphicSolidModels = "Destroy GraphicSolidModels",
+            GraphicsHSR = "Destroy GraphicsHSR",
+            GraphicsMeshParts = "Destroy GraphicsMeshParts",
+            GraphicsParticles = "Destroy GraphicsParticles",
+            GraphicsParts = "Destroy GraphicsParts",
+            GraphicsSpatialHash = "Destroy GraphicsSpatialHash",
+            GraphicsTerrain = "Destroy GraphicsTerrain",
+            GraphicsTexture = "Destroy GraphicsTexture",
+            GraphicsTextureCharacter = "Destroy GraphicsTextureCharacter",
+            GraphicsSlimModels = "Destroy GraphicsSlimModels"
+        }
+        
+        for GraphicName, ButtonTitle in pairs(GraphicTypes) do
+            Tabs.Performance:AddButton({
+                Title = ButtonTitle,
+                Callback = function()
+                    game:GetService("PlaceMemory")[GraphicName] = false
+                end
+            })
+        end
+    end
+})
