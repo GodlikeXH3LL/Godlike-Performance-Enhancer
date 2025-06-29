@@ -39,21 +39,21 @@ local Tabs = {
 
 Tabs.Performance:CreateToggle({
     Title = "Remove Shadows",
-    Callback = function(state)
-        game:GetService("Lighting").GlobalShadows = not state
+    Callback = function()
+        game:GetService("Lighting").GlobalShadows = false
     end
 })
 
 Tabs.Performance:CreateToggle({
     Title = "Bloom",
-    Callback = function(state)
-        game:GetService("Lighting"):FindFirstChildOfClass("BloomEffect").Enabled = not state
+    Callback = function()
+        game:GetService("Lighting"):FindFirstChildOfClass("BloomEffect").Enabled = false
     end
 })
 
 Tabs.Performance:CreateToggle({
     Title = "SunRaysEffect",
-    Callback = function(state)
-        game:GetService("Lighting"):FindFirstChildOfClass("SunRaysEffect").Enabled = not state
+    Callback = function()
+        game:GetService("Lighting"):FindFirstChildOfClass("SunRaysEffect").Enabled = false
     end
 })
