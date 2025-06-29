@@ -1,0 +1,59 @@
+local Library = loadstring(game:HttpGetAsync("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
+local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ActualMasterOogway/Fluent-Renewed/master/Addons/SaveManager.luau"))()
+local InterfaceManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ActualMasterOogway/Fluent-Renewed/master/Addons/InterfaceManager.luau"))()
+
+local Window = Library:CreateWindow({
+    Title = "Godlikes Performance Enhancer",
+    SubTitle = "By Godlike",
+    TabWidth = 125,
+    Size = UDim2.fromOffset(830, 525),
+    Resize = true,
+    MinSize = Vector2.new(470, 380),
+    Acrylic = true,
+    Theme = "Darker",
+    MinimizeKey = Enum.KeyCode.RightControl
+})
+
+Library:Notify({
+    Title = "Welcome",
+    Content = "Hope you enjoy!!!",
+    SubContent = "Made by Godlike",
+    Duration = 5
+})
+
+Library:Notify({
+    Title = "Join the Discord",
+    SubContent = "Link in Credits Tab",
+    Duration = 8
+})
+
+local Tabs = {
+    Performance = Window:AddTab({ Title = "Performance", Icon = "file" }),
+    Enhancer = Window:AddTab({ Title = "Enhancer", Icon = "badge-alert" }),
+    ServerStats = Window:AddTab({ Title = "Server Stats", Icon = "database" }),
+    Personalize = Window:AddTab({ Title = "Personalize", Icon = "door-closed-locked" }),
+    GoodFriends = Window:AddTab({ Title = "Good Friends", Icon = "handshake" }),
+    Backtomenu = Window:AddTab({ Title = "Back To Menu", Icon = "house" }),
+    Credits = Window:AddTab({ Title = "Credits", Icon = "type" }),
+}
+
+Tabs.Performance:CreateToggle({
+    Title = "Remove Shadows",
+    Callback = function(state)
+        game:GetService("Lighting").GlobalShadows = not state
+    end
+})
+
+Tabs.Performance:CreateToggle({
+    Title = "Bloom",
+    Callback = function(state)
+        game:GetService("Lighting"):FindFirstChildOfClass("BloomEffect").Enabled = not state
+    end
+})
+
+Tabs.Performance:CreateToggle({
+    Title = "SunRaysEffect",
+    Callback = function(state)
+        game:GetService("Lighting"):FindFirstChildOfClass("SunRaysEffect").Enabled = not state
+    end
+})
