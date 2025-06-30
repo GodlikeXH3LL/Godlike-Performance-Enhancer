@@ -45,7 +45,7 @@ Tabs.Performance:AddButton({
 })
 
 Tabs.Performance:AddButton({
-    Title = "Bloom",
+    Title = "Disable Bloom",
     Callback = function()
         local bloom = game:GetService("Lighting"):FindFirstChildOfClass("BloomEffect")
         if bloom then
@@ -55,7 +55,7 @@ Tabs.Performance:AddButton({
 })
 
 Tabs.Performance:AddButton({
-    Title = "SunRaysEffect",
+    Title = "Disable SunRaysEffect",
     Callback = function()
         local sunRays = game:GetService("Lighting"):FindFirstChildOfClass("SunRaysEffect")
         if sunRays then
@@ -64,29 +64,29 @@ Tabs.Performance:AddButton({
     end
 })
 
-Tabs.Performance:AddButton({
-    Title = "Destroy Graphics",
-    Callback = function()
-        local GraphicTypes = {
-            GraphicSolidModels = "Destroy GraphicSolidModels",
-            GraphicsHSR = "Destroy GraphicsHSR",
-            GraphicsMeshParts = "Destroy GraphicsMeshParts",
-            GraphicsParticles = "Destroy GraphicsParticles",
-            GraphicsParts = "Destroy GraphicsParts",
-            GraphicsSpatialHash = "Destroy GraphicsSpatialHash",
-            GraphicsTerrain = "Destroy GraphicsTerrain",
-            GraphicsTexture = "Destroy GraphicsTexture",
-            GraphicsTextureCharacter = "Destroy GraphicsTextureCharacter",
-            GraphicsSlimModels = "Destroy GraphicsSlimModels"
-        }
-        
-        for GraphicName, ButtonTitle in pairs(GraphicTypes) do
-            Tabs.Performance:AddButton({
-                Title = ButtonTitle,
-                Callback = function()
-                    game:GetService("PlaceMemory")[GraphicName] = false
-                end
-            })
+local GraphicTypes = {
+    GraphicSolidModels = "Destroy GraphicSolidModels",
+    GraphicsHSR = "Destroy GraphicsHSR",
+    GraphicsMeshParts = "Destroy GraphicsMeshParts",
+    GraphicsParticles = "Destroy GraphicsParticles",
+    GraphicsParts = "Destroy GraphicsParts",
+    GraphicsSpatialHash = "Destroy GraphicsSpatialHash",
+    GraphicsTerrain = "Destroy GraphicsTerrain",
+    GraphicsTexture = "Destroy GraphicsTexture",
+    GraphicsTextureCharacter = "Destroy GraphicsTextureCharacter",
+    GraphicsSlimModels = "Destroy GraphicsSlimModels"
+}
+
+for GraphicName, ButtonTitle in pairs(GraphicTypes) do
+    Tabs.Performance:AddButton({
+        Title = ButtonTitle,
+        Callback = function()
+            local success, result = pcall(function()
+                game:GetService("StarterGui"):SetCore("Graphics" .. GraphicName, false)
+            end)
+            if not success then
+                warn("Failed to disable " .. GraphicName .. ": " .. result)
+            end
         end
-    end
-})
+    })
+end
