@@ -1,4 +1,3 @@
-
 local Library = loadstring(game:HttpGetAsync("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
 local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ActualMasterOogway/Fluent-Renewed/master/Addons/SaveManager.luau"))()
 local InterfaceManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ActualMasterOogway/Fluent-Renewed/master/Addons/InterfaceManager.luau"))()
@@ -71,26 +70,6 @@ Tabs.Performance:AddButton({
         local part = workspace:FindFirstChild("RobloxForwardPortals")
         if part then
             part:Destroy()
-        end
-    end
-})
-
-Tabs.Performance:AddButton({
-    Title = "Destroy Ad Boards",
-    Callback = function()
-        local parts = workspace:FindFirstChild("RobloxAdBoards")
-        if parts then
-            parts:Destroy()
-        end
-    end
-})
-
-Tabs.Performance:AddButton({
-    Title = "Destroy Palm Trees",
-    Callback = function()
-        local parts = workspace:FindFirstChild("Palm Trees")
-        if parts then
-            parts:Destroy()
         end
     end
 })
