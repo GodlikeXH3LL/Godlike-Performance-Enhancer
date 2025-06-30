@@ -71,6 +71,7 @@ Tabs.Performance:AddButton({
         if part then
             part:Destroy()
         end
+    end
 })
 
 Tabs.Performance:AddButton({
@@ -78,6 +79,7 @@ Tabs.Performance:AddButton({
     Callback = function()
         local parts = workspace:FindFirstChild("RobloxAdBoards")
         if parts then
-           parts:Destroy()
-        end            
+            parts:Destroy()
+        end
+    end
 })
