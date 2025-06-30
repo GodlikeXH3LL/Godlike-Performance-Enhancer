@@ -67,10 +67,26 @@ Tabs.Performance:AddButton({
 Tabs.Performance:AddButton({
     Title = "Destroy Portal",
     Callback = function()
-        local Portal = game:FindFirstChild("RobloxForwardPortals")
-        if Portal then
-            Portal:FindFirstChild("Portal1"):Destroy()
+        local part = workspace:FindFirstChild("RobloxForwardPortals")
+        if part then
+            part:Destroy()
         end
-    end
 })
 
+Tabs.Performance:AddButton({
+    Title = "Destroy Ad Boards",
+    Callback = function()
+        local parts = workspace:FindFirstChild("RobloxAdBoards")
+        if parts then
+            parts:Destroy()
+        end
+})
+
+Tabs.Performance:AddButton({
+    Title = "Destroy Palm Trees",
+    Callback = function()
+        local parts = workspace:FindFirstChild("Palm Trees")
+        if parts then
+            parts:Destroy()
+        end
+})
